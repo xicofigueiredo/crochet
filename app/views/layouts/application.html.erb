@@ -8,9 +8,16 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-  </head>
+  </head>rails
 
   <body>
-    <%= yield %>
+   <div class="page-container">
+      <%= render "shared/navbar" if user = current_user %>
+        <%= render "shared/flashes" %>
+      <main id="main-content" class="position-relative">
+        <%= yield %>
+      </main>
+      <%= render "shared/footer" if user = current_user%>
+    </div>
   </body>
 </html>
