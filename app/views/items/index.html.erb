@@ -1,0 +1,38 @@
+<div class="index_banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1612344026448-92fb6300b4e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2874&q=80);">
+  <div class="container">
+    <h1>Crochet em fio </strong></h1>
+    <p>Aonde ha cenas bueda locas</p>
+    <p><%=link_to "Make new item", new_item_path, class:"btn-ghost"  %></p>
+  </div>
+</div>
+
+
+<div class="container">
+  <ul>
+    <div class="cards">
+        <% @items.each do |item| %>
+          <li>
+           <%= link_to item_path(item), style:"text-decoration:none; color:black;" do %>
+              <div class="card-trip">
+                <div class="position-relative">
+                  <% image_url = cl_image_path item.photos.first.key if item.photos.attached? %>
+                  <% display_pics = ['https://images.unsplash.com/photo-1639921884918-8d28ab2e39a4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2030&q=80', 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80', 'https://images.unsplash.com/photo-1446941611757-91d2c3bd3d45?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2902&q=80', 'https://images.ctfassets.net/cnu0m8re1exe/31CAgXLmRrvJg4Vw3cs3h2/51bda4639b4d05d8371b588af7d9c95b/shutterstock_1649833612.jpg', 'https://d2r55xnwy6nx47.cloudfront.net/uploads/2018/07/SolarFull_SeanDoran_2880FullwidthLede.jpg', 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Andromeda_Galaxy_560mm_FL.jpg/800px-Andromeda_Galaxy_560mm_FL.jpg']%>
+                  <div class="astro-image" style="background-image: url(<%= item.photos.attached? ? image_url : display_pics.sample %>)"></div>
+                  <div class="listing_tag">
+                  </div>
+                </div>
+                  <div class="card-trip-infos">
+                    <div>
+                      <h2><%= item.name %></h2>
+                      <p><%= item.category %></p>
+                    </div>
+                    <h2 class="card-trip-pricing"><%= item.price %>€</h2>
+                    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+                  </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+    </div>
+  </ul>
+</div>

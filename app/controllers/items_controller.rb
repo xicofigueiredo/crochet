@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-
     if params[:search].present?
       sql_query = <<~SQL
         items.name @@ :query
@@ -19,7 +18,6 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @booking = Booking.new
     # @item_not = item.where.not(user: current_user)
   end
 
@@ -29,7 +27,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.user = current_user
     if @item.save
       redirect_to item_path(@item)
     else
@@ -53,7 +50,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :price, photos: [])
+    params.require(:item).permit(:name, :price, :category, :description, photos: [])
   end
 
   def set_item
