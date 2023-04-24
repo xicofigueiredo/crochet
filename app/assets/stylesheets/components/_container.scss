@@ -1,0 +1,29 @@
+.container {
+  margin: 40px;
+}
+
+
+.small_container {
+    margin-top: 50px;
+    align-items: center;
+    margin-inline: 500px;
+  }
+
+
+.booking_container {
+  margin: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.booking_card {
+  padding: 16px;
+  margin: 20px;
+  align-content: right;
+}
+
+.booking_form_container {
+  padding-left: 150px;
+  padding-right: 250px;
+}

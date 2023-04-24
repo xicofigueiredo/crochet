@@ -57,12 +57,12 @@
     <h5>Descrição do produto </h5>
     <p> <%= @item.description %></p>
     <h5>Como proceder a sua compra?</h5>
-    <p>Adicione ao seu carrinho os produtos desejados</p>
+    <p>Adicione ao seu carrinho os produtos desejados ou envie mensagem pelo instagram @crochetemfio</p>
 
     <ul class="d-flex justify-content-start" style="padding-left: 0px;">
-      <li><%= link_to "Edit Astro", edit_item_path(@item), style: "color:white", class: "d-block btn-flat text-decoration-none" %></li>
-      <li><%= link_to "Back to list", items_path, style: "color:white", class: "d-block btn-flat text-decoration-none" %></li>
-      <li><%= link_to "Delete item", item_path(@item), style: "color:white", class: "d-block btn-delete text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
+      <li><%= link_to "Voltar", items_path, style: "color:white", class: "d-block btn-flat text-decoration-none" %></li>
+      <li><%= link_to "Editar", edit_item_path(@item), style: "color:white", class: "d-block btn-flat text-decoration-none" %></li>
+      <li><%= link_to "Apagar", item_path(@item), style: "color:white", class: "d-block btn-delete text-decoration-none", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></li>
     </ul>
   </div>
 </div>
